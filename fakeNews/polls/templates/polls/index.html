@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="../../favicon.ico">
+
+		<title>Ultimate news reader</title>
+
+		<!-- CSS style -->
+		{% load static %}
+		<script type="text/javascript" src="{% static '/jquery/dist/jquery.js' %}"</script>
+		<script type="text/javascript" src="{% static '/bootstrap/dist/js/bootstrap.min.js' %}"</script>
+		<link rel="stylesheet" href="{% static '/bootstrap/dist/css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static '/bootstrap/dist/css/bootstrap-theme.min.css' %}" />
+		
+	</head>
+
+	<body>
+	
+	    <nav class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">Ultimate news reader</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+<!-- 			  <form class="navbar-form navbar-right">
+				<div class="form-group">
+				  <input type="text" placeholder="Email" class="form-control">
+				</div>
+				<div class="form-group">
+				  <input type="password" placeholder="Password" class="form-control">
+				</div>
+				<button type="submit" class="btn btn-success">Sign in</button>
+			  </form> -->
+			</div><!--/.navbar-collapse -->
+		  </div>
+		</nav>
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron">
+		  <div class="container">
+			<h1>News reader AI filter enabled</h1>
+			<p>This is a rss feed reader that provides the suer a unique place to check his favorites news. It does provide a probability for the new to be fake using an AI algorithm to ensure that the user gets only the most updated and real news.</p>
+			<p><a class="btn btn-primary btn-lg" href="https://github.com/Manusevl/aiHackathron" role="button">Our gitHub repository &raquo;</a></p>
+		  </div>
+		</div>
+
+		<div class="container">
+		  <!-- Example row of columns -->
+		  <div class="row">
+			{% for actualNew in entries %}
+			<div class="col-md-4">
+			  <h2>{{ actualNew.title }}</h2>
+			  <p>{{ actualNew.summary }}</p>
+			  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+			  <p style="font-weight: bold; font-size:20px">Probability to be real: {{ actualNew.probability }}</p>
+			</div>
+			{% endfor %}
+		  </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2016 Company, Inc.</p>
+      </footer>
+    </div> <!-- /container -->
+
+	</body>
+
+</html>
